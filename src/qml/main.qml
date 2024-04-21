@@ -325,7 +325,7 @@ ApplicationWindow {
         id: conclusionDialogTipoFlorestal
         title: "Calibração Concluída com Sucesso"
         buttons: MessageDialog.Ok
-        text: "Coeficientes estimados, parte aleatória \nb0 = " + bfixo[0] + "\nb1 = "
+        text: "Coeficientes preditos, parte aleatória \nb0 = " + bfixo[0] + "\nb1 = "
         + bfixo[1] + "\n\nCoeficientes calibrados \nβ0 = " + best[0] + "\nβ1 = " + best[1]
     }
 
