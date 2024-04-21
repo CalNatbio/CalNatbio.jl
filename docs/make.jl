@@ -1,14 +1,14 @@
-using CalNatbio
+using CalNatBio
 using Documenter
 
-DocMeta.setdocmeta!(CalNatbio, :DocTestSetup, :(using CalNatbio); recursive=true)
+DocMeta.setdocmeta!(CalNatBio, :DocTestSetup, :(using CalNatBio); recursive=true)
 
 makedocs(;
-    modules=[CalNatbio],
-    authors=".",
-    sitename="CalNatbio.jl",
+    modules=[CalNatBio],
+    authors="renilsonlisboa <renilsonlisboajunior@gmail.com> and contributors",
+    sitename="CalNatBio.jl",
     format=Documenter.HTML(;
-        canonical="https://CalNatbio.github.io/CalNatbio.jl",
+        canonical="https://renilsonlisboajunior@gmail.com.github.io/CalNatBio.jl",
         edit_link="master",
         assets=String[],
     ),
@@ -18,6 +18,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/CalNatbio/CalNatbio.jl",
+    repo="github.com/renilsonlisboajunior@gmail.com/CalNatBio.jl",
     devbranch="master",
 )

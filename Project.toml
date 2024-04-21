@@ -1,10 +1,16 @@
-name = "CalNatbio"
-uuid = "13ced4d7-206e-4120-a904-2f2403ad49c2"
-authors = ["."]
+name = "CalNatBio"
+uuid = "067981f6-4168-4480-ae7d-87bb80893db4"
+authors = ["renilsonlisboa <renilsonlisboajunior@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+QML = "2db162a6-7e43-52c3-8d84-290c1c42d82a"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
 [compat]
-julia = "1"
+julia = "1.10"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

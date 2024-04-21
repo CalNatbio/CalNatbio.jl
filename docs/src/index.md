@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = CalNatbio
+CurrentModule = CalNatBio
 ```
 
-# CalNatbio
+# CalNatBio
 
-Documentation for [CalNatbio](https://github.com/CalNatbio/CalNatbio.jl).
+Documentation for [CalNatBio](https://github.com/renilsonlisboajunior@gmail.com/CalNatBio.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [CalNatbio]
+Modules = [CalNatBio]
 ```

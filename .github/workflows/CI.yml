@@ -23,7 +23,6 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.0'
           - '1.10'
           - 'nightly'
         os:
@@ -70,6 +69,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using CalNatbio
-          DocMeta.setdocmeta!(CalNatbio, :DocTestSetup, :(using CalNatbio); recursive=true)
-          doctest(CalNatbio)
+          using CalNatBio
+          DocMeta.setdocmeta!(CalNatBio, :DocTestSetup, :(using CalNatBio); recursive=true)
+          doctest(CalNatBio)

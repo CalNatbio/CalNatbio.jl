@@ -1,3 +1,3 @@
 [deps]
-CalNatbio = "13ced4d7-206e-4120-a904-2f2403ad49c2"
+CalNatBio = "067981f6-4168-4480-ae7d-87bb80893db4"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"

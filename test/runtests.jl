@@ -1,6 +1,6 @@
-using CalNatbio
+using CalNatBio
 using Test
 
-@testset "CalNatbio.jl" begin
+@testset "CalNatBio.jl" begin
     # Write your tests here.
 end
