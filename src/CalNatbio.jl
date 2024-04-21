@@ -35,6 +35,13 @@ export RunApp
         b = nothing
         Bhat = nothing
 
+        # Define o DAP máximo para o grid
+        if maximum(DAP) <= 45
+            maxX = 45
+        else
+            maxX = ceil((maximum(DAP)/10))*10
+        end
+
         # Ajuste das equações a nível de Tipologia Florestal
         if nivel == 0
             Bfixo=[-2.1346; 2.3477]
@@ -50,7 +57,7 @@ export RunApp
             b[1] = b[1] + (R[1,1]/2)
             Bfixo[1] = Bfixo[1] + (R[1,1]/2)
             Bhat=Bfixo+b
-            x0= 5:0.001:45
+            x0= 5:0.001:maxX
             xGrid = [ones(size(x0,1)) x0]
             xGridt = [ones(size(x0,1)) log.(x0)]
             yestimado = xGridt*Bhat
@@ -71,7 +78,7 @@ export RunApp
             b[1] = b[1] + (R[1,1]/2)
             Bfixo[1] = Bfixo[1] + (R[1,1]/2)
             Bhat=Bfixo+b
-            x0= 5:0.001:45
+            x0= 5:0.001:maxX
             xGrid = [ones(size(x0,1)) x0]
             xGridt = [ones(size(x0,1)) log.(x0)]
             yestimado = xGridt*Bhat
@@ -80,10 +87,11 @@ export RunApp
             return 0
         end
 
-        # Gerá os gráficos com os paramêtros selecionados
-        plt = scatter(DAP, B, xlabel = "Diâmetro à altura do peito (cm)", ylabel = "Biomassa Total (Kg)", grid_linewidth = 0, color = "green", label = false, xticks = (0:5:(ceil((maximum(DAP)/10)*10))))
-        plt = plot!(xGrid[:, 2], yestimado, label = false) 
 
+        # Gerá os gráficos com os paramêtros selecionados
+        plt = scatter(DAP, B, xlabel = "Diâmetro à altura do peito (cm)", ylabel = "Biomassa Total (Kg)", grid_linewidth = 0, color = "green", label = false, xticks = (0:5:maxX))
+        plt = plot!(xGrid[:, 2], yestimado, yticks = (0:100:(ceil((maximum(yestimado)+100)/100)*100)), label = false) 
+    
         # Apresenta o gráfico de resutados
         display(plt)
 
@@ -103,7 +111,7 @@ export RunApp
         current_directory = dirname(@__FILE__)
 
         # Carrega o arquivo .qml localizado no diretório atual
-        loadqml(joinpath(current_directory, "qml", "main.qml"))
+        loadqml(joinpath(current_directory, "src/qml", "main.qml"))
 
         # Executa o arquivo .QML localizado e carregado anteriormente
         exec()
