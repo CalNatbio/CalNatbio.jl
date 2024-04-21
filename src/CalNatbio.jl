@@ -1,4 +1,4 @@
-module CalNatBio
+module CalNatbio
 
 # Importa os pacotes utilizados para desenvolvimento e funcionamento do programa
 import QML: QString, @qmlfunction, loadqml, exec
