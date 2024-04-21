@@ -1,5 +1,3 @@
-//add borda combobox + botão
-
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts 
@@ -337,6 +335,7 @@ ApplicationWindow {
         buttons: MessageDialog.Ok
     }
 
+    // qmllint disable unqualified
     Connections {
         target: tipologiaFlorestal
         onClosing: {
@@ -346,8 +345,9 @@ ApplicationWindow {
                         inputDataTipologia.children[j].text = ""
                     }
                 }
-            }
+            } 
             comboBox2.currentIndex = 0
         }
     }
+    // qmllint enable unqualified
 }
