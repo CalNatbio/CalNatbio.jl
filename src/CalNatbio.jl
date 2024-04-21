@@ -81,9 +81,8 @@ export RunApp
         end
 
         # Gerá os gráficos com os paramêtros selecionados
-        plt = scatter(DAP, B, xlabel = "Diâmetro à altura do peito (cm)", ylabel = "Biomassa Total (Kg)", grid_linewidth = 0, color = "green", label = false)
+        plt = scatter(DAP, B, xlabel = "Diâmetro à altura do peito (cm)", ylabel = "Biomassa Total (Kg)", grid_linewidth = 0, color = "green", label = false, xticks = (0:5:(ceil((maximum(DAP)/10)*10))))
         plt = plot!(xGrid[:, 2], yestimado, label = false) 
-        xticks!(0:5:(ceil((maximum(DAP)/10)*10)))
 
         # Apresenta o gráfico de resutados
         display(plt)
