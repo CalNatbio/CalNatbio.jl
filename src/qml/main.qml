@@ -69,7 +69,7 @@ ApplicationWindow {
                 model: ListModel {
                     id: model2
                     ListElement {
-                        text: "Tipologia Florestal"
+                        text: "Tipologia"
                     }
                     ListElement {
                         text: "Local"
