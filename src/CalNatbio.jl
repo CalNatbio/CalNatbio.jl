@@ -115,6 +115,14 @@
 
         # Ativa o programa em QML
         function RunApp()
+                    
+            # Redefinindo a saída padrão e de erro para um dispositivo nulo
+            old_stdout = redirect_stdout(devnull)
+            old_stderr = redirect_stderr(devnull)
+
+            # Restaurando a saída padrão e de erro
+            redirect_stdout(old_stdout)
+            redirect_stderr(old_stderr)
             # Exporta as funções definidas em Julia para o arquivo .QML
             @qmlfunction ajustarEq
 
