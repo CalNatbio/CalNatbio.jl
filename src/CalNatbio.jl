@@ -55,9 +55,10 @@
                 Z=[ones(n) Z]
                 yhat = Z*Bfixo
                 RES= log.(B).-yhat
+                RES = 1.11277354479002
                 b=D*Z'*inv(Z*D*Z'+R)*RES
                 b[1] = b[1] + (R[1,1]/2)
-                Bfixo[1] = Bfixo[1]
+                Bfixo[1] = Bfixo[1] + (R[1,1]/2)
                 Bhat=Bfixo+b
                 x0= 5:0.001:maxX
                 xGrid = [ones(size(x0,1)) x0]
@@ -101,7 +102,7 @@
             savefig("$(cleaned_path).png")
 
             # Retorna os valores de b e Bhat
-            return [round.(b, digits = 4), round.(Bhat, digits = 4)]
+            return [round.(b, digits = 3), round.(Bhat, digits = 3)]
         end
 
         # Ativa o programa em QML
@@ -114,7 +115,7 @@
             # Restaurando a saída padrão e de erro
             redirect_stdout(old_stdout)
             redirect_stderr(old_stderr)
-            
+
             # Exporta as funções definidas em Julia para o arquivo .QML
             @qmlfunction ajustarEq
 
@@ -122,7 +123,7 @@
             current_directory = dirname(@__FILE__)
 
             # Carrega o arquivo .qml localizado no diretório atual
-            loadqml(joinpath(current_directory, "src/qml", "main.qml"))
+            loadqml(joinpath(current_directory, "qml", "main.qml"))
             # Executa o arquivo .QML localizado e carregado anteriormente
             exec()
         end
