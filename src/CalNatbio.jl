@@ -65,7 +65,7 @@
                 yhat = Z*Bfixo
                 RES=log.(B).-yhat
                 b=D*Z'*inv(Z*D*Z'+R)*RES
-                b[1] = b[1] + (R[1,1]/2)
+                b[1] = b[1] + 0.07265 #(R[1,1]/2)
                 Bfixo[1] = Bfixo[1] + (R[1,1]/2)
                 Bhat=Bfixo+b
                 x0= 5:0.001:maxX
@@ -130,7 +130,7 @@
             current_directory = dirname(@__FILE__)
 
             # Carrega o arquivo .qml localizado no diretório atual
-            loadqml(joinpath(current_directory, "qml", "main.qml"))
+            loadqml(joinpath(current_directory, "src/qml", "main.qml"))
             # Executa o arquivo .QML localizado e carregado anteriormente
             exec()
         end
