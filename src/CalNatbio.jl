@@ -8,15 +8,6 @@
     import Base: redirect_stderr
 
 
-    # Redefinindo a saída padrão e de erro para um dispositivo nulo
-    old_stdout = redirect_stdout(devnull)
-    old_stderr = redirect_stderr(devnull)
-
-    # Restaurando a saída padrão e de erro
-    redirect_stdout(old_stdout)
-    redirect_stderr(old_stderr)
-
-
     # Exporta a função Inventory possibilitando ser chamada via terminal pelo usuário
     export RunApp
 
@@ -63,10 +54,10 @@
                 Z= log.(DAP)
                 Z=[ones(n) Z]
                 yhat = Z*Bfixo
-                RES=log.(B).-yhat
+                RES= log.(B).-yhat
                 b=D*Z'*inv(Z*D*Z'+R)*RES
-                b[1] = b[1] + 0.07265 #(R[1,1]/2)
-                Bfixo[1] = Bfixo[1] + (R[1,1]/2)
+                b[1] = b[1] + (R[1,1]/2)
+                Bfixo[1] = Bfixo[1]
                 Bhat=Bfixo+b
                 x0= 5:0.001:maxX
                 xGrid = [ones(size(x0,1)) x0]
@@ -123,6 +114,7 @@
             # Restaurando a saída padrão e de erro
             redirect_stdout(old_stdout)
             redirect_stderr(old_stderr)
+            
             # Exporta as funções definidas em Julia para o arquivo .QML
             @qmlfunction ajustarEq
 
