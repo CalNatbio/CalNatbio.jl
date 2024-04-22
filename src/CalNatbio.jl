@@ -55,9 +55,9 @@
 
             # Ajuste das equações a nível de Tipologia Florestal
             if nivel == 0
-                Bfixo=[-2.1346; 2.3477]
-                D=[0.1737 -0.0799; -0.0799 0.0406]
-                R = [0.1612]
+                Bfixo=[-1.9106; 2.2598]
+                D=[0.022420 -0.011190; -0.011190 0.011420]
+                R = [0.1453]
                 n=size(DAP,1)
                 R=diagm(repeat(R, inner = n))
                 Z= log.(DAP)
