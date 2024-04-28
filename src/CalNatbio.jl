@@ -123,7 +123,7 @@
             current_directory = dirname(@__FILE__)
 
             # Carrega o arquivo .qml localizado no diretório atual
-            loadqml(joinpath(current_directory, "qml", "main.qml"))
+            loadqml(joinpath(current_directory, "src/qml", "main.qml"))
             # Executa o arquivo .QML localizado e carregado anteriormente
             exec()
         end

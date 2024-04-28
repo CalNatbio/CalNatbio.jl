@@ -7,9 +7,7 @@ import org.julialang
 ApplicationWindow {
     width: 640
     height: 480
-    title: "CalNatBio"
-    x: (Screen.width - width) / 2 // Centralizar horizontalmente
-    y: (Screen.height - height) / 2 // Centralizar verticalmente
+    title: "CalNatbio"
     minimumWidth: 640
     maximumWidth: 640
     minimumHeight: 480
@@ -100,7 +98,7 @@ ApplicationWindow {
         }
 
         Rectangle {
-            id: reteste2
+            id: tipodeamostragem
             anchors.centerIn: rectanglebase
             anchors.verticalCenterOffset: -20
             height: 40
@@ -109,7 +107,7 @@ ApplicationWindow {
 
             ComboBox {
                 id: comboBox3
-                anchors.centerIn: reteste2
+                anchors.centerIn: tipodeamostragem
                 width: 265
                 height: 30
                 anchors.horizontalCenterOffset: 136
@@ -149,7 +147,7 @@ ApplicationWindow {
 
             ComboBox {
                 id: comboBox4
-                anchors.centerIn: reteste2
+                anchors.centerIn: tipodeamostragem
                 width: 265
                 height: 30
                 anchors.horizontalCenterOffset: -136
@@ -334,20 +332,4 @@ ApplicationWindow {
         text: "Os dados informados são insuficientes para a calibração.\nPreencha todos os campos e tente novamente."
         buttons: MessageDialog.Ok
     }
-
-    // qmllint disable unqualified
-    Connections {
-        target: tipologiaFlorestal
-        onClosing: {
-            for (var i = 0; i < inputDataTipologia.columns; i++) {
-                for (var j = 0; j < inputDataTipologia.children.length; j++) {
-                    if (inputDataTipologia.children[j] instanceof TextField) {
-                        inputDataTipologia.children[j].text = ""
-                    }
-                }
-            } 
-            comboBox2.currentIndex = 0
-        }
-    }
-    // qmllint enable unqualified
 }
