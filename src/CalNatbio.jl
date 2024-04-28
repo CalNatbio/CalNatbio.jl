@@ -7,6 +7,7 @@
     using Plots
     import Base: redirect_stderr
 
+    Plots.default(show = true)
 
     # Exporta a função Inventory possibilitando ser chamada via terminal pelo usuário
     export RunApp
